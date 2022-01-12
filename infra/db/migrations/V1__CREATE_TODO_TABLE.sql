@@ -1,0 +1,7 @@
+CREATE TABLE todos(
+    id UUID NOT NULL,
+    done BOOLEAN NOT NULL DEFAULT false,
+    task VARCHAR(255) NOT NULL,
+
+    CONSTRAINT pk_todos PRIMARY KEY(id)
+)

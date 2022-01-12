@@ -1,0 +1,26 @@
+version: '3'
+services:
+  database:
+    image: "postgres:13-alpine"
+    env_file:
+      - db/.env
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-U", "todo_db_user"]
+      interval: 5s
+      timeout: 1s
+      retries: 2
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  migrations:
+    image: "flyway/flyway:8.4-alpine"
+    command: -configFiles=/flyway/conf/flyway.conf -connectRetries=60 migrate
+    volumes:
+      - ${PWD}/db/migrations:/flyway/sql:ro
+      - ${PWD}/db/flyway.conf:/flyway/conf/flyway.conf:ro
+    depends_on:
+      - database
+
+volumes:
+  database-data:
