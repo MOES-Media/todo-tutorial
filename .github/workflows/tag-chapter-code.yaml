@@ -5,15 +5,16 @@ on:
       - feature/project-setup
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Extract branch name
-      shell: bash
-      run: |
-        BRANCH="##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        echo $BRANCH
-        STR="${BRANCH//(^[ ]+|[ ]+$)/}"
-        echo $STR
-      id: extract_branch
+  Tag Chapter Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: |
+          BRANCH="##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+          echo $BRANCH
+          STR="${BRANCH//(^[ ]+|[ ]+$)/}"
+          echo $STR
+        id: extract_branch
