@@ -20,7 +20,7 @@ jobs:
         run: yarn install
       - name: Set git user
         run: |
-        git config user.email "gh-actions@moes-media.be"
-        git config user.name "gh-actions bot"
+          git config user.email "gh-actions@moes-media.be"
+          git config user.name "gh-actions bot"
       - name: Build and deploy site to gh-pages
         run: yarn site:deploy
