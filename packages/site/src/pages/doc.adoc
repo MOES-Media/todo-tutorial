@@ -1,0 +1,5 @@
+= Asciidoc test
+:page-path: /doc
+
+
+hello world?

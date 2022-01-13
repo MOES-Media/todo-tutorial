@@ -1,0 +1,30 @@
+= Project Setup
+:page-chapter: 1
+
+== MonoRepo with Lerna and Yarn workspaces
+
+- yarn init -y
+
+- yarn add -D lerna
+
+- yarn lerna init
+
+- modifiying package.json
+
+- modifiying lerna.json
+
+=== Adding a first typescript library
+
+=== Adding a NestJS micro service
+
+=== Adding a React App with CRA
+
+=== Creating helper scripts in package.json
+
+== Local development environment with Docker Compose
+
+=== PostgreSQL
+
+=== Keeping your database in check with migrations
+
+=== Adding helper scripts in package.json
