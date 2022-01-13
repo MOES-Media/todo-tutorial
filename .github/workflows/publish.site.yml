@@ -9,10 +9,18 @@ jobs:
   build-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout docs branch
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
           node-version: "14"
           cache: "yarn"
-      - run: yarn install
-      - run: yarn site:deploy
+      - name: Install dependencies
+        run: yarn install
+      - name: Set git user
+        run: |
+        git config user.email "gh-actions@moes-media.be"
+        git config user.name "gh-actions bot"
+      - name: Build and deploy site to gh-pages
+        run: yarn site:deploy
