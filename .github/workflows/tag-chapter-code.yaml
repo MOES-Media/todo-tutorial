@@ -5,7 +5,7 @@ on:
       - feature/project-setup
 
 jobs:
-  Tag Chapter Code Base
+  tag-chapter-code-base:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
