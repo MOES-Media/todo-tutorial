@@ -1,11 +1,12 @@
 {
-  "name": "todo-service",
+  "name": "@moes-media/todo-service",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "clean": "rimraf dist",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
