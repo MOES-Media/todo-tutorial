@@ -19,7 +19,7 @@
     "infra:stop": "docker-compose -f infra/docker-compose.yml down",
     "infra:reset": "docker-compose -f infra/docker-compose.yml down -v",
     "site:dev": "lerna run start --scope=@moes-media/site --stream",
-    "site:deploy": "lerna run deploy --scope=@moes-media/site --stream"
+    "site:build": "lerna run build --scope=@moes-media/site --stream"
   },
   "workspaces": [
     "packages/*"

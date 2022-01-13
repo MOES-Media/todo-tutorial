@@ -22,7 +22,10 @@ jobs:
         run: |
           git config user.email "gh-actions@moes-media.be"
           git config user.name "gh-actions bot"
-      - name: Build and deploy site to gh-pages
-        run: yarn site:deploy
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build site
+        run: yarn site:build
+      - name: Deploy site to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
