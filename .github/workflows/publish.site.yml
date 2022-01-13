@@ -18,11 +18,11 @@ jobs:
           cache: "yarn"
       - name: Install dependencies
         run: yarn install
-      - name: Set git user
+      - name: Set GIT user
         run: |
           git config user.email "gh-actions@moes-media.be"
           git config user.name "gh-actions bot"
       - name: Build and deploy site to gh-pages
         run: yarn site:deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
