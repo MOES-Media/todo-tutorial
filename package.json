@@ -2,7 +2,7 @@
   "name": "@moes-media/todo-tutorial",
   "version": "0.0.1",
   "main": "index.js",
-  "author": "Jeroen Nouws <jeroen.nouws@lemon.be>",
+  "author": "Jeroen Nouws <jeroen@moes-media.be>",
   "license": "MIT",
   "private": "true",
   "devDependencies": {
@@ -20,6 +20,7 @@
     "infra:reset": "docker-compose -f infra/docker-compose.yml down -v"
   },
   "workspaces": [
-    "packages/*"
+    "clients/*",
+    "services/*"
   ]
 }

@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "Shared logic and models between client and server",
   "keywords": [],
-  "author": "Jeroen Nouws <jeroen.nouws@lemon.be>",
+  "author": "Jeroen Nouws <jeroen@moes-media.be>",
   "license": "ISC",
   "main": "build/index.js",
   "types":"build/index.d.ts",
+  "private": "true",
   "directories": {
     "build": "build"
   },
