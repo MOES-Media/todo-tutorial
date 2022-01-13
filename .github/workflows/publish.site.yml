@@ -24,3 +24,5 @@ jobs:
           git config user.name "gh-actions bot"
       - name: Build and deploy site to gh-pages
         run: yarn site:deploy
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
