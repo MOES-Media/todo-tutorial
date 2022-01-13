@@ -14,5 +14,8 @@ jobs:
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
-      - name: Print branch name
-        run: echo ${${{ steps.extract_branch.outputs.branch }}//feature\//}
+      - name: Trim branch name
+        run: echo "##[set-output name=trimmed_branch;]$(echo ${${{ steps.extract_branch.outputs.branch }}//feature\//})"
+        id: trim_branch
+      - name: Print trimmed branch name
+        run echo "${{ steps.trim_branch.outputs.trimmed_branch }}"
