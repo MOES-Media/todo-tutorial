@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-article-js",
+    "path": "/pages/",
+    "result": {"data":{"asciidoc":{"html":"<div class=\"paragraph\">\n<p>hello world?</p>\n</div>","document":{"title":"Asciidoc test","subtitle":"","main":"Asciidoc test"},"revision":null,"author":{"fullName":null,"firstName":null,"lastName":"","middleName":"","authorInitials":"","email":""}}},"pageContext":{"id":"be77fe48-f797-52f2-b717-801106ac4044"}},
+    "staticQueryHashes": ["3649515864"]}
