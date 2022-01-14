@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  lint:
+    build: .
+    volumes:
+      - ${PWD}:/workspace
+    command: lint
+  image:
+    build: .
+    volumes:
+      - ${PWD}:/workspace
+    command: build -o image.bin
+  breaking:
+    build: .
+    volumes:
+      - ${PWD}:/workspace
+    command: breaking --against image.bin
+  generate:
+    build: .
+    volumes:
+      - ${PWD}:/workspace
+    command: generate

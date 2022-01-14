@@ -1,0 +1,18 @@
+version: v1
+
+plugins:
+  # Generate javascript
+  - name: js
+    out: build/node
+    opt: import_style=commonjs,binary
+  
+  # Generate grpc stubs js
+  - name: grpc
+    out: build/node
+    opt: grpc_js
+    path: grpc_tools_node_protoc_plugin
+  
+  # Generate typescript bindings
+  - name: ts
+    out: build/node
+    opt: grpc_js

@@ -1,0 +1,8 @@
+syntax = "proto3";
+package api.todo.v1;
+
+message Todo {
+    string id = 1;
+    string task = 2;
+    bool is_done = 3;
+}

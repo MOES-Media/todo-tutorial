@@ -1,0 +1,33 @@
+{
+  "name": "@moes-media/todo-api",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Jeroen Nouws <jeroen@moes-media.be>",
+  "homepage": "https://github.com/MOES-Media/todo-tutorial#readme",
+  "license": "ISC",
+  "main": "build/index.js",
+  "private": "true",
+  "directories": {
+    "build": "build/node"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MOES-Media/todo-tutorial.git"
+  },
+  "scripts": {
+    "clean": "rimraf build",
+    "lint": "docker-compose up lint",
+    "image": "docker-compose up image",
+    "breaking": "docker-compose up breaking",
+    "build": "docker-compose up generate"
+  },
+  "bugs": {
+    "url": "https://github.com/MOES-Media/todo-tutorial/issues"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.5.0"
+  }
+}

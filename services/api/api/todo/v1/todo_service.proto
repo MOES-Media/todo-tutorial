@@ -1,0 +1,16 @@
+syntax = "proto3";
+package api.todo.v1;
+
+import "api/todo/v1/todo.proto";
+
+service TodoService {
+    rpc CreateOneTodo (CreateOneTodoRequest) returns (CreateOneTodoResponse);
+}
+
+message CreateOneTodoRequest{
+    Todo data = 1;
+}
+
+message CreateOneTodoResponse{
+    string id = 1;
+}
