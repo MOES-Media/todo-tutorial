@@ -1,6 +1,6 @@
 {
   "name": "@moes-media/todo-commons",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Shared logic and models between client and server",
   "keywords": [],
   "author": "Jeroen Nouws <jeroen@moes-media.be>",
