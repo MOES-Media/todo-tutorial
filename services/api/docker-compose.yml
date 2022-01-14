@@ -19,5 +19,5 @@ services:
   generate:
     build: .
     volumes:
-      - ${PWD}:/workspace
+      - ${PWD}${BUILD_PATH}:/workspace
     command: generate
