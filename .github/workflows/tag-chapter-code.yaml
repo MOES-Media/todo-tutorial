@@ -1,6 +1,6 @@
 name: Tag chapter code
 on:
-  pull_request:
+  pull_request_review:
 
 jobs:
   tag-chapter-code-base:
@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        if: github.event.review.state == 'approved'
 
       - name: Extract branch name
         uses: tj-actions/branch-names@v5.1
