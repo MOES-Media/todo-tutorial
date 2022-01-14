@@ -1,8 +1,6 @@
 name: Tag chapter code
 on:
-  push:
-    branches:
-      - feature/project-setup
+  pull_request:
 
 jobs:
   tag-chapter-code-base:
@@ -47,6 +45,6 @@ jobs:
           git config user.name "gh-actions bot"
           git add -A
           git commit -m "[ci skip] Create tag for ${{ steps.trim-branch.outputs.result }}:${{ steps.lerna-version.outputs.lerna-version}}"
-          git tag -a ${{ steps.trim-branch.outputs.result }}--${{ steps.lerna-version.outputs.lerna-version}} -m "[ci skip] ${{ steps.trim-branch.outputs.result }}:${{ steps.lerna-version.outputs.lerna-version}}"
+          git tag -a ${{ steps.trim-branch.outputs.result }}-${{ steps.lerna-version.outputs.lerna-version}} -m "[ci skip] ${{ steps.trim-branch.outputs.result }}:${{ steps.lerna-version.outputs.lerna-version}}"
           git push
           git push --tags
