@@ -10,26 +10,43 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
+
       - name: Trim branch name
         uses: actions/github-script@v5
         with:
           script: return "${{ steps.extract_branch.outputs.branch }}".replace(/feature\//, '');
           result-encoding: string
         id: trim-branch
+
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
+
       - name: Install lerna cli
         run: yarn global add lerna
+
       - name: Bump patch version
         run: lerna version patch --no-git-tag-version -y
+
       - name: Get version from lerna.json
         id: lerna-version
         uses: saulonunesdev/lerna-get-version-action@v1.0.4
+
       - name: Print trimmed branch name
-        run: echo "${{ steps.trim-branch.outputs.result }}"
+        run: echo "${{ steps.trim-branch.outputs.result }}:${{ steps.lerna-version.outputs.lerna-version}}"
+
+      - name: Commit version bump and create tag
+        run: |
+          git config user.email "gh-actions@moes-media.be"
+          git config user.name "gh-actions bot"
+          git add -A
+          git commit -m "[ci skip] Create tag for ${{ steps.trim-branch.outputs.result }}:${{ steps.lerna-version.outputs.lerna-version}}"
+          git tag -a ${{ steps.trim-branch.outputs.result }}:${{ steps.lerna-version.outputs.lerna-version}} -m "[ci skip] ${{ steps.trim-branch.outputs.result }}:${{ steps.lerna-version.outputs.lerna-version}}"
+          git push
+          git push --tags
