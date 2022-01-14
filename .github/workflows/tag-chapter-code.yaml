@@ -28,8 +28,12 @@ jobs:
       - name: Install lerna cli
         run: yarn global add lerna
 
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ steps.extract_branch.outputs.head_ref_branch }} 
+
       - name: Bump patch version
-        run:  git checkout ${{ steps.extract_branch.outputs.head_ref_branch }} && lerna version patch --no-git-tag-version -y
+        run: lerna version patch --no-git-tag-version -y
 
       - name: Get version from lerna.json
         id: lerna-version
