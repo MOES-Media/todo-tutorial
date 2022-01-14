@@ -16,7 +16,7 @@
     "clean": "lerna run clean --stream",
     "build": "lerna run build --stream --ignore @moes-media/todo-api",
     "build:watch": "lerna run build:watch --stream",
-    "build:api": "cross-env BUILD_PATH=/services/api lerna run build --scope=@moes-media/todo-api",
+    "build:api": "cross-env BUILD_PATH=/services/api lerna run build --scope=@moes-media/todo-api --stream",
     "start:dev": "yarn clean && yarn build:watch",
     "infra:start": "docker-compose -f infra/docker-compose.yml up -d",
     "infra:stop": "docker-compose -f infra/docker-compose.yml down",
